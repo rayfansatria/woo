@@ -25,7 +25,7 @@ class SessionsScreen extends StatelessWidget {
               trailing: IconButton(
                 icon: const Icon(Icons.check_circle),
                 onPressed: () {
-                  ScaffoldMessenger.of(_).showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Selesai: ${s['name']}')),
                   );
                 },
