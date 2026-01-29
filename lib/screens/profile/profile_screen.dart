@@ -56,7 +56,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          CircleAvatar(radius: 40, child: Text((_email ?? 'U')[0].toUpperCase())),
+          CircleAvatar(
+            radius: 40,
+            child: Text(
+              (_email != null && _email!.isNotEmpty ? _email![0] : 'U').toUpperCase()
+            ),
+          ),
           const SizedBox(height: 12),
           Center(child: Text(_email ?? 'Pengguna', style: t.textTheme.titleMedium)),
           const SizedBox(height: 24),

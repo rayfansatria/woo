@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:workout/screens/splash_screen.dart';
 import 'package:workout/screens/auth/login_screen.dart';
 import 'package:workout/screens/home/home_screen.dart';
-import 'package:workout/services/auth_service.dart';
 import 'package:workout/services/notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await NotificationService.instance.initialize();
+  try {
+    await NotificationService.instance.initialize();
+  } catch (e) {
+    // Notification service initialization failed, but continue app execution
+    debugPrint('Failed to initialize notifications: $e');
+  }
   runApp(const WorkoutApp());
 }
 
@@ -19,7 +23,7 @@ class WorkoutApp extends StatelessWidget {
     return MaterialApp(
       title: 'Workout',
       theme: ThemeData(
-        colorSchemeSeed: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
