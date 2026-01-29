@@ -1,16 +1,29 @@
-# woo
+# Workout Flutter App
 
-A new Flutter project.
+A Flutter app with splash screen (5s), Auth & Profile (mock), Workout Programs, Workout Sessions, Nutrition, and daily reminders via local notifications.
 
-## Getting Started
+## Requirements
+- Flutter SDK
 
-This project is a starting point for a Flutter application.
+## Setup
+```bash
+flutter pub get
+flutter run
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- Splash (5s) then route to login/home
+- Auth & Profile using SharedPreferences (stub)
+- Programs list
+- Sessions (today demo)
+- Nutrition meals list + total calories
+- Daily reminder notifications using flutter_local_notifications & timezone
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Notes
+- Android 13+ requires notification permission; the plugin handles runtime prompts when showing/scheduling notifications.
+- iOS: permissions are requested on initialization.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Future Work
+- Switch auth to Firebase
+- Persist data with Firestore/SQLite
+- Add program/session details and progress tracking
