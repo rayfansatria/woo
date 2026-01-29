@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:workout/screens/workout/program_detail_screen.dart';
 
 class ProgramsScreen extends StatelessWidget {
   const ProgramsScreen({super.key});
@@ -156,7 +157,14 @@ class ProgramsScreen extends StatelessWidget {
         border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProgramDetailScreen(program: program),
+            ),
+          );
+        },
         borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.all(16),
